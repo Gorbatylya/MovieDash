@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
-
+body{
+  font-family: 'Poppins';
+}
 /* Указываем box sizing */
 *,
 *::before,
@@ -45,4 +47,15 @@ button,
 textarea,
 select {
   font: inherit;
+}
+
+input[type="text"] {
+  font-family: inherit;
+  /* 1 */
+  font-size: inherit;
+  /* 1 */
+  line-height: inherit;
+  /* 1 */
+  margin: 0;
+  /* 2 */
 }

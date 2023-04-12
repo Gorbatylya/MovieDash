@@ -1,43 +1,34 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import './layout.css';
-// import logo from "logo.jpg";
+import Header from '../../components/header/Header';
 
 const Layout = () => {
   return (
     <>
-    <div className='wrapper'>
-        <header>
-            <div className='container'>
-              <div className='header-content'>
-                <NavLink to='/' className='logo-wrap'><img src="/image/logo.jpg" alt="logo" className='logo'/></NavLink>
-                <div className='header-menu'>
-                <NavLink to='/' className={({ isActive }) => isActive ? 'active-link' : 'linkPage'}>Home</NavLink>
-                <NavLink to='/movies' className={({ isActive }) => isActive ? 'active-link' : 'linkPage'}>Movies</NavLink>
-                <NavLink to='/series' className={({ isActive }) => isActive ? 'active-link' : 'linkPage'}>Series</NavLink>
-                <NavLink to='/contact' className={({ isActive }) => isActive ? 'active-link' : 'linkPage'}>Contact</NavLink>
-            <NavLink to='/person' className={({ isActive }) => isActive ? 'active-link link-person' : 'linkPage link-person'}>
-              Person
-            </NavLink>
-              </div>
-            </div>
-         </div>
-        </header>
+        <Header></Header>
 
          <main >
-           <div className='container'>
-        <Outlet/> 
-        {/* сюда вставляется все что находится в Layout в App */}
-           </div>
+          <Outlet/> 
+          {/* сюда вставляется все что находится в Layout в App */}
         </main>
-    </div>
+
         <footer>
          <div className='footer-content'>
               <div className='container'>
-                  2023
+                <img src='/image/moviedash.gif' className='footer-logo'></img>
+                <div className='footer-icon-wrap'>
+                    <div className='footer-icon'><i className="fa-brands fa-vk fa-2xl"></i></div>
+                    <div className='footer-icon'><i className="fa-brands fa-youtube fa-2xl"></i></div>
+                    <div className='footer-icon'><i className="fa-brands fa-instagram fa-2xl"></i></div>
+                    <div className='footer-icon'><i className="fa-brands fa-telegram fa-2xl"></i></div>
+                </div>
+                <h3 className='footer__bottom-info'>
+                  © 2003 — 2023 MovieDash
+                </h3>
               </div>
            </div>
-         </footer>
+        </footer>
      
     </>
   )

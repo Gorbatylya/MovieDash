@@ -1,5 +1,6 @@
 body{
    height: 100%;
+   background-color: rgb(0, 0, 0);
 }
 
 .wrapper{
@@ -8,7 +9,7 @@ body{
 
 .container {
    width: 1200px;
-   margin: auto;
+   margin: 0 auto;
 }
 
 /* Link */
@@ -27,10 +28,6 @@ body{
    color: rgb(212, 212, 209);
 }
 
-.link-person {
-   /* margin-left: 30%; */
-}
-
 a {
    margin: 20px;
    text-decoration: none;
@@ -40,56 +37,25 @@ a:hover {
    color: rgb(197, 196, 198);
 }
 
-/* Header */
 
-header {
-   background-color: black;
-   height: 100px;
-   flex: 1 0 auto;
-}
-
-.header-content {
-   /* padding: 20px; */
-   background-color: black;
-   /* text-align: center; */
-   display: flex;
-}
-
-img{
-   height: 100px;
-   width: 250px;
-}
-
-.logo{
-   height: 100px;
-   width: 250px;
-}
-
-.logo-wrap{
-   width: 250px;
-   margin: 0 0 0 -20px;
-}
-
-.header-menu{
-   margin: 20px;
-   text-align: center;
-   display: flex;
-   justify-content: center;
-}
 
 /* Main */
 
 main {
-   background-color: rgb(17, 17, 19);
+   
    color: white;
    padding-bottom: 100px;
 }
+
+/* .background{
+   background-color: rgb(17, 17, 19);
+} */
 
 /* Footer */
 
 footer {
    background-color: black;
-   height: 100px;
+   height: 200px;
    margin-top: -100px;
 }
 
@@ -98,3 +64,47 @@ footer {
    background-color: black;
    /* margin: auto; */
 }
+
+.footer-icon-wrap{
+   display: flex;
+   margin: 10px 40px;
+}
+
+.footer-icon{
+   margin: 5px;
+}
+
+.fa-brands{
+   color: #9f9f9fe7;
+}
+
+.footer-logo{
+   margin-top: 20px;
+}
+
+.footer__bottom-info{
+   color: rgba(255, 255, 255, 0.3);
+   font-size: 12px;
+   margin-left: 20px;
+   margin-top: 50px;
+}
+
+/* icon */
+
+.fa-regular{
+   color: #ffffff;
+   margin-top: auto ;
+   margin-bottom: auto;
+   margin-left: auto;
+   /* max-width: 50px; */
+}
+
+.fa-regular:hover{
+   color: rgb(121, 69, 121);
+}
+
+.link-person::before{
+   border: none !important; 
+   color: rgb(212, 126, 212) !important;
+}
+
