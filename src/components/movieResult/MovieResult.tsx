@@ -1,9 +1,24 @@
 import React from 'react';
 import './MovieResult.css';
-import '../pages/layout/layout.css';
+import { IMovieResult } from '../../interfaces/interface';
+
 
 
 const MovieResult = () => {
+
+   async function searchCharacters(search: any) {
+      const URL = `https://omdbapi.com/?s=${search}&page=1&apikey=3140da31`;
+      const res = await fetch(`${URL}`);
+      const data = await res.json();
+      console.log(data.Search);
+
+      if (data.Search)
+         return data.Search
+      else console.log('error')
+   }
+
+
+
   return (
     <div className='movie-result'>
         <div className="container">

@@ -82,7 +82,12 @@ img {
 
 /* SEARCH LIST */
 
-.search-list {
+.notFound{
+   color: #fff;
+   margin-left: 15px;
+}
+
+.search-list-active {
    position: absolute;
    top: 80px;
    max-height: 220px;
@@ -96,12 +101,16 @@ img {
    padding-bottom: 10px;
 }
 
-.search-list .search-list-item {
+.search-list{
+   display: none;
+}
+
+.search-list-active .search-list-item {
    color: #fff;
    cursor: pointer;
 }
 
-.search-list .search-list-item:Hover {
+.search-list-active .search-list-item:Hover {
    background-color: #141414;
 }
 
@@ -117,6 +126,7 @@ img {
    width: 60px;
    height: 90px;
    margin-right: 20px;
+   object-fit: cover;
 }
 
 .search-item-info h3 {
@@ -133,11 +143,11 @@ img {
 
 /* SCROLL */
 
-.search-list::-webkit-scrollbar {
+.search-list-active::-webkit-scrollbar {
    width: 8px;
 }
 
-.search-list::-webkit-scrollbar-thumb {
+.search-list-active::-webkit-scrollbar-thumb {
    background-color: rgb(121, 69, 121);
    outline: none;
    border-radius: 10px;

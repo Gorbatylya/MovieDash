@@ -1,13 +1,15 @@
 import React from 'react';
 import './homepage.css';
 import '../layout/layout.css';
-import MovieResult from '../../components/MovieResult';
+import MovieResult from '../../components/movieResult/MovieResult';
 
 const Homepage = () => {
   return (
     <div>
 
-      <MovieResult></MovieResult>
+      <MovieResult
+
+      ></MovieResult>
 
       <div className='banner'>
         <div className='gradient'>
