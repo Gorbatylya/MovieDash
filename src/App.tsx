@@ -8,13 +8,21 @@ import NodeFound from './pages/NodeFound';
 import Layout from './pages/layout/Layout';
 import Contact from './pages/contact/Contact';
 import Person from './pages/person/Person';
+// import { useDispatch, Selector } from '@reduxjs/toolkit';
+// import { AppDispatch } from './store/store';
+
+
+
 
 function App() {
+
+
+
   return (
     <div className="App">
 
         <Routes>
-
+        
         <Route path="/" element={<Layout />}>
             <Route index element={<Homepage />} />
             <Route path="movies" element={<Movies />} />

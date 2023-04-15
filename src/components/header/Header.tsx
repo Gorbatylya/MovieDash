@@ -5,7 +5,7 @@ import useDebounce from '../../hooks/useDebounce';
 import { IMovie } from '../../interfaces/interface';
 
 
-const movieSearchBox = document.getElementById('movie-search-box')
+
 
 // https://www.omdbapi.com/?s=thor&page=1&apikey=3140da31
 
@@ -53,7 +53,6 @@ const Header = () => {
             searchCharacters(debouncedSearchTerm).then(results => {
                // состояние в false, тк запрос завершен
                setIsSearching(false);
-              
 
                if (results == undefined){
                   console.log('ERROR')

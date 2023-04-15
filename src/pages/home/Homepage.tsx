@@ -3,13 +3,32 @@ import './homepage.css';
 import '../layout/layout.css';
 import MovieResult from '../../components/movieResult/MovieResult';
 
+
+import { RootState } from '../../redux/store/store';
+import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../hooks/redux';
+import { useAppDispatch } from '../../hooks/redux';
+import { UserSlice } from '../../redux/reducers/UserSlice';
+import { useDispatch } from 'react-redux';
+
 const Homepage = () => {
+
+  const { count } = useAppSelector(state => state.userReducer)
+  const { increment } = UserSlice.actions
+  const dispatch = useAppDispatch()
+
+  console.log(increment(5))
+
   return (
     <div>
 
       <MovieResult
 
       ></MovieResult>
+
+      <h1>{count}</h1>
+      <button onClick={()=> dispatch(increment(10))}>INCREMENT</button>
+      {/* <button>D</button> */}
 
       <div className='banner'>
         <div className='gradient'>
