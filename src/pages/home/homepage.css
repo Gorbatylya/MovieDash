@@ -56,7 +56,6 @@
 
 .input-search-wrap{
    display: flex;
-  
    flex-direction: column;
    margin-right: 100px;
 }
@@ -82,6 +81,13 @@
    outline: 0;
    box-shadow: 0 0 0 0.3rem rgba(177, 93, 163, 0.554);
 }
+
+/* RECOMENDATION */
+
+/* .recomendation{
+   background-color: #000000;
+   max-height: ;
+} */
 
 /* FILMCARD */
 

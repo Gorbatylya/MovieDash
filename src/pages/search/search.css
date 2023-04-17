@@ -1,0 +1,277 @@
+.blog-search{
+   display: flex;
+   min-height: 550px;
+   background-color: rgb(19, 19, 19);
+}
+
+.blog-search-content{
+   display: flex;
+   
+   margin-top: 50px;
+
+}
+
+.blog-search-title{
+   font-size: 28px;
+   margin-bottom: 20px;
+}
+
+.blog-search-input-wrap {
+   display: flex;
+   flex-direction: column;
+   height: 40px;
+   margin-right: 80px;
+   border-radius: 8px;
+
+}
+
+.blog-search-input-loop{
+   display: flex;
+   max-width: 380px;
+   max-height: 80px;
+   height: 50px;
+   justify-content: center;
+
+}
+
+/* .blog-search-input-loop:focus {
+   color: #000000;
+   background-color: #ffffff;
+   border-color: #ffffff;
+   outline: 0;
+   box-shadow: 0 0 0 0.3rem rgba(177, 93, 163, 0.554);
+} */
+
+.blog-search-input {
+   height: 50px;
+   width: 380px;
+   border: none;
+   padding: 10px;
+   padding-left: 15px !important;
+   border-top-left-radius: 6px;
+   border-bottom-left-radius: 6px;
+}
+
+.blog-search-input:focus {
+   color: #000000;
+   background-color: #ffffff;
+   border-color: #ffffff;
+   outline: 0;
+   box-shadow: 0 0 0 0.3rem rgba(177, 93, 163, 0.554);
+}
+
+.blog-search-loop-wrap {
+   background-color: #ffffff;
+   border: none;
+   border-top-right-radius: 8px;
+   border-bottom-right-radius: 8px;
+   padding: 12px;
+   padding-right: 12px !important;
+}
+
+.blog-search-loop-wrap:focus {
+   color: #000000;
+   background-color: #ffffff;
+   border-color: #ffffff;
+   outline: 0;
+   box-shadow: 0 0 0 0.3rem rgba(177, 93, 163, 0.554);
+}
+
+.search-loop {
+   color: rgb(162, 165, 165);
+   border: none;
+   margin: 0 !important;
+}
+
+.search-loop.a.hover {
+   color: rgb(35, 35, 35) !important;
+}
+
+/* SEARCH LIST */
+
+.notFound {
+   color: #fff;
+   margin-left: 15px;
+}
+
+.blog-search-list-active {
+   position: absolute;
+   top: 270px;
+   max-height: 220px;
+   max-width: 380px;
+   width: 100%;
+   overflow-y: scroll;
+   z-index: 60;
+   background-color: #1f1f1f;
+   border-radius: 6px;
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+
+.blog-search-list {
+   display: none;
+}
+
+.blog-search-list-active .blog-search-list-item {
+   color: #fff;
+   cursor: pointer;
+}
+
+.blog-search-list-active .blog-search-list-item:Hover {
+   background-color: #141414;
+}
+
+.blog-search-list-item {
+   display: flex;
+   padding-left: 12px;
+   padding-top: 6px;
+   padding-bottom: 6px;
+   padding-right: 12px;
+}
+
+.blog-search-item-thumbnail img {
+   width: 60px;
+   height: 90px;
+   margin-right: 20px;
+   object-fit: cover;
+}
+
+.blog-search-item-info h3 {
+   font-weight: 600;
+   font-size: 16px;
+}
+
+.blog-search-item-info p {
+   font-size: 14px;
+   margin-top: 7px;
+   font-weight: 600;
+   opacity: 0.6;
+}
+
+/* SCROLL */
+
+.blog-search-list-active::-webkit-scrollbar {
+   width: 8px;
+}
+
+.blog-search-list-active::-webkit-scrollbar-thumb {
+   background-color: rgb(121, 69, 121);
+   outline: none;
+   border-radius: 10px;
+}
+
+/* MovieResult */
+
+.result-content{
+   display: flex;
+}
+
+.movie-poster {
+   margin-top: 50px;
+}
+
+.movie-poster img {
+
+   max-width: 250px;
+   width: 100%;
+   max-height: 300px;
+   height: 100%;
+   margin: 0 auto;
+   border: 4px solid #fff;
+   object-fit: cover;
+}
+
+.movie-info {
+   color: #fff;
+   max-height: 350px;
+   height: 100%;
+   margin-left: 40px;
+   width: 500px;
+   /* width: 100%; */
+}
+
+.movie-title {
+   font-size: 26px;
+   color: #a24a99;
+   margin-bottom: 20px;
+}
+
+.movie-misc-info {
+   list-style-type: none;
+   display: flex;
+   align-items: center;
+}
+
+.movie-info .year {
+   font-weight: 500;
+   margin-right: 10px;
+}
+
+.movie-info .rated {
+   background-color: #a24a99;
+   border-radius: 3px;
+   font-weight: 600;
+   margin-right: 10px;
+   padding: 5px;
+}
+
+.movie-info .released {
+   font-size: 16px;
+   opacity: 0.9;
+}
+
+.movie-info .genre {
+   background-color: rgb(145, 145, 145);
+   padding: 5px;
+   display: inline-block;
+   border-radius: 3px;
+   margin-top: 15px;
+}
+
+.movie-info .writer {
+   /* margin-top: 15px; */
+}
+
+.movie-info .actors {
+   /* margin-top: 20px; */
+}
+
+.movie-info .plot {
+   max-width: 500px;
+   margin-top: 20px;
+}
+
+.movie-info .language {
+   color: #a24a99;
+   font-style: italic;
+   margin-top: 20px;
+}
+
+.movie-info .awards {
+   font-weight: 300;
+   font-size: 0.9rem;
+   /* margin-top: 10px; */
+}
+
+.movie-info .awards i {
+   color: #a24a99;
+   margin-right: 5px;
+}
+
+.info-heart{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.favorite-button {
+   width: 40px;
+}
+
+
+
+.fa-heart{
+   color: #a24a99;
+   
+}
+

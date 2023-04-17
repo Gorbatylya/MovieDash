@@ -12,51 +12,7 @@ header {
    display: flex;
 }
 
-.header-search-input {
-   display: flex;
-   height: 40px;
-   margin: auto;
-   border-radius: 8px;
-   background-color: #a1a0a0;
-}
 
-
-.header-input {
-   height: 40px;
-   width: 400px;
-   border: none;
-   padding: 10px;
-   padding-left: 12px !important;
-   border-top-left-radius: 8px;
-   border-bottom-left-radius: 8px;
-}
-
-.header-input:focus {
-   color: #000000;
-   background-color: #ffffff;
-   border-color: #ffffff;
-   outline: 0;
-   /* box-shadow: 0 0 0 0.3rem rgba(177, 93, 163, 0.554); */
-}
-
-.header-loop-wrap {
-   background-color: #ffffff;
-   border: none;
-   border-top-right-radius: 8px;
-   border-bottom-right-radius: 8px;
-   padding: 8px;
-   padding-right: 12px !important;
-}
-
-.header-loop {
-   color: rgb(162, 165, 165);
-   border: none;
-   margin: 0 !important;
-}
-
-.header-loop.a.hover {
-   color: rgb(35, 35, 35) !important;
-}
 
 img {
    height: 100px;
@@ -75,80 +31,14 @@ img {
 
 .header-menu {
    margin: 20px;
+   margin-left: 200px;
+   margin-right: 120px;
    text-align: center;
    display: flex;
    justify-content: center;
 }
 
-/* SEARCH LIST */
-
-.notFound{
-   color: #fff;
-   margin-left: 15px;
+.fa-regular {
+   width: 30px;
 }
 
-.search-list-active {
-   position: absolute;
-   top: 80px;
-   max-height: 220px;
-   max-width: 440px;
-   width: 100%;
-   overflow-y: scroll;
-   z-index: 60;
-   background-color: #1f1f1f;
-   border-radius: 8px;
-   padding-top: 10px;
-   padding-bottom: 10px;
-}
-
-.search-list{
-   display: none;
-}
-
-.search-list-active .search-list-item {
-   color: #fff;
-   cursor: pointer;
-}
-
-.search-list-active .search-list-item:Hover {
-   background-color: #141414;
-}
-
-.search-list-item {
-   display: flex;
-   padding-left: 12px;
-   padding-top: 6px;
-   padding-bottom: 6px;
-   padding-right: 12px;
-}
-
-.search-item-thumbnail img {
-   width: 60px;
-   height: 90px;
-   margin-right: 20px;
-   object-fit: cover;
-}
-
-.search-item-info h3 {
-   font-weight: 600;
-   font-size: 16px;
-}
-
-.search-item-info p {
-   font-size: 14px;
-   margin-top: 7px;
-   font-weight: 600;
-   opacity: 0.6;
-}
-
-/* SCROLL */
-
-.search-list-active::-webkit-scrollbar {
-   width: 8px;
-}
-
-.search-list-active::-webkit-scrollbar-thumb {
-   background-color: rgb(121, 69, 121);
-   outline: none;
-   border-radius: 10px;
-}

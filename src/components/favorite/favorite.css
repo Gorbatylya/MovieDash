@@ -1,0 +1,32 @@
+.favourite-list {
+   padding: 30px;
+   display: flex;
+   max-width: 1200px;
+}
+
+.favourite-list-item {
+   display: flex;
+   flex-direction: column;
+   height: 300px;
+   width: 200px;
+   margin: 20px;
+}
+
+.favourite-list-item-thumbnail {
+   height: 200px;
+   width: 150px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-bottom: 10px;
+}
+
+.favourite-list-item-thumbnail img {
+   height: 200px;
+   width: 150px;
+}
+
+.favourite-list-item-info h3 {
+   font-size: 16px;
+   color: rgb(212, 126, 212)
+}

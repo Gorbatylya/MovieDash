@@ -1,32 +1,34 @@
-import React from 'react';
+import React, {useState,useEffect} from 'react';
+import { useParams } from 'react-router-dom';
 import './MovieResult.css';
 import { IMovieResult } from '../../interfaces/interface';
+import { useAppSelector,useAppDispatch } from '../../hooks/redux';
+import { fetchMovieById } from '../../redux/actions/actionCreator';
 
 
+// async function movieDetailResult() {
+//    const URL = `https://omdbapi.com/?i=tt10145122&page=1&apikey=3140da31`;
+//    const res = await fetch(`${URL}`);
+//    const data = await res.json();
+//    console.log(data);
 
-const MovieResult = () => {
+//    if (data)
+//       return data
+//    else console.log('error')
+// }
 
-   async function searchCharacters(search: any) {
-      const URL = `https://omdbapi.com/?s=${search}&page=1&apikey=3140da31`;
-      const res = await fetch(`${URL}`);
-      const data = await res.json();
-      console.log(data.Search);
-
-      if (data.Search)
-         return data.Search
-      else console.log('error')
-   }
-
+const MovieResult = (movie:IMovieResult) => {
 
 
   return (
     <div className='movie-result'>
-        <div className="container">
+        {/* <div className="container"> */}
            
               <div className="result-content" id="result-content">
              
+               
                  <div className="movie-poster">
-                    <img src="/image/medium-cover.jpg" alt="movie poster" />
+              <img src={''} alt="movie poster" />
                  </div>
                  <div className="movie-info">
                     <h3 className="movie-title">Guardians of the Galaxy Vol. 2</h3>
@@ -42,8 +44,9 @@ const MovieResult = () => {
                     <p className="language"><b>Language:</b> English</p>
                     <p className="awards"><b><i className="fas fa-award"></i></b> Nominated for 1 Oscar</p>
                  </div>
+  
               </div>
-        </div>
+        {/* </div> */}
     </div>
   )
 }
