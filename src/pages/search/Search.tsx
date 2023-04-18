@@ -5,7 +5,12 @@ import useDebounce from '../../hooks/useDebounce';
 import { IMovie, IMovieResult } from '../../interfaces/interface';
 import './search.css';
 import MovieResult from '../../components/movieResult/MovieResult';
-import { title } from 'process';
+import { useAppDispatch, useAppSelector} from '../../hooks/redux';
+import {
+  addToFavourites, deleteMovie
+} from "../../redux/reducers/MovieFavoriteSlice";
+import ButtonForFavourites from '../../components/buttonForFavorite/ButtonForFavorite';
+// import { checkInFavorite } from '../../components/buttonForFavorite/ButtonForFavorite';
 
 
 async function searchRequest(search: any) {
@@ -65,24 +70,54 @@ const Movies = () => {
     [debouncedSearchTerm]
   );
 
+  const dispatch = useAppDispatch();
+  const { favoriteMovies } = useAppSelector(
+    (state) => state.movieFavoriteReducer
+  );
+
+  const [inFavorite, setInFavorite] = useState(true);
+
   async function loadMovieDetails(imdbID: any) {
     const URL = `https://omdbapi.com/?i=${imdbID}&apikey=3140da31`;
     const res = await fetch(`${URL}`);
     const data: IMovieResult= await res.json();
-    setMovie(data)
-    setmovieDetail(true)
-    setInFavorite(false)
-    if (data)
-      return data
+    
+
+    // if (!favoriteMovies.find(
+    //   (favoriteMovie) => favoriteMovie.imdbID === data.imdbID))
+    //   return setInFavorite(true)
+    // else return setInFavorite(false)
+    // setInFavorite(false)
+    if (data !== undefined)
+      return setMovie(data),
+              setmovieDetail(true)
     else console.log('error')
   }
 
   const [movie, setMovie] = useState<IMovieResult>();
   const [movieDetail, setmovieDetail] = useState(false);
 
-  // for favourite-button
-  const [inFavorite, setInFavorite] = useState(false)
-  // setInFavorite(true)
+
+  // const [inFavorite, setInFavorite] = useState(true);
+
+
+
+  // function addMovies() {
+  //   dispatch(addToFavourites(movie))
+  //   setInFavorite(false)
+  // }
+
+  // function deleteMovies() {
+  //   dispatch(deleteMovie(movie))
+  //   setInFavorite(true)
+  // }
+
+  // function checkInFavorite() {
+  //   if (!favoriteMovies.find((favoriteMovie) => favoriteMovie.imdbID === movie.imdbID))
+  //     return setInFavorite(true)
+  //   else setInFavorite(false)
+  // }
+
 
 
   return (
@@ -105,7 +140,7 @@ const Movies = () => {
                         {result.map((item: IMovie) => (
                             <div className="blog-search-list-item"
                               key={item.imdbID}
-                            onClick={() => loadMovieDetails(item.imdbID)}>
+                              onClick={() => loadMovieDetails(item.imdbID)}>
                               <div className="blog-search-item-thumbnail">
                                 <img src={(item.Poster != "N/A") ? item.Poster : "/image/no_image.jpg"} className='img-poster' />
                               </div>
@@ -146,7 +181,7 @@ const Movies = () => {
                       <p className="language"><b>Language:</b>{movie?.Language}</p>
                       <p className="awards"><b><i className="fas fa-award"></i></b>{movie?.Awards}</p>
                     </div>
-                    <div className='favorite-button'><i onClick={() => setInFavorite(prev => !prev)} className={inFavorite ? 'fa-solid fa-heart fa-2xl' : "fa-regular fa-heart fa-2xl"}></i></div>
+                   <ButtonForFavourites movie={movie}></ButtonForFavourites>
                   </div>
 
               </div>
@@ -172,7 +207,7 @@ const Movies = () => {
                       <p className="language"><b>Language:</b>Italian</p>
                       <p className="awards"><b><i className="fas fa-award"></i></b>no information</p>
                     </div>
-                    <div className='favorite-button'><i onClick={() => setInFavorite(prev => !prev)} className={inFavorite ? 'fa-solid fa-heart fa-2xl' : "fa-regular fa-heart fa-2xl"}></i></div>
+                    {/* <ButtonForFavourites movie={movie} ></ButtonForFavourites> */}
                   </div>
                 </div>
               </div>

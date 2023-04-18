@@ -10,7 +10,7 @@ import { useAppSelector } from '../../hooks/redux';
 import { useAppDispatch } from '../../hooks/redux';
 import { MovieSlice } from '../../redux/reducers/MovieSlice';
 import { useDispatch } from 'react-redux';
-import { fetchMovies } from '../../redux/actions/actionCreator';
+// import { fetchMovies } from '../../redux/actions/actionCreator';
 
 const Homepage = () => {
 

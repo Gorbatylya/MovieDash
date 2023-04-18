@@ -35,16 +35,16 @@ export const fetchMovieById = createAsyncThunk(
    }
 );
 
-export const fetchMovies = createAsyncThunk(
-   "movie/fetchAll",
-   async (_,thunAPI) => {
-      try {
-         const response = await getMovie.getAllBySearch()
-         return response;
+// export const fetchMovies = createAsyncThunk(
+//    "movie/fetchAll",
+//    async (_,thunAPI) => {
+//       try {
+//          const response = await getMovie.getAllBySearch()
+//          return response;
 
-      } catch (error) {
-         return thunAPI.rejectWithValue('Movie download failed')
-   }
-   }
+//       } catch (error) {
+//          return thunAPI.rejectWithValue('Movie download failed')
+//    }
+//    }
     
-)
+// )

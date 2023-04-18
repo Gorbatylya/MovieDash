@@ -4,7 +4,7 @@ import '../home/homepage.css';
 import Favorite from '../../components/favorite/Favorite';
 
 
-const Series = () => {
+const MyFavorite = () => {
   return (
     <div>
       <div className="container">
@@ -14,4 +14,4 @@ const Series = () => {
   )
 }
 
-export default Series
+export default MyFavorite

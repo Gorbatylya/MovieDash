@@ -24,19 +24,19 @@ import { IMovie, IMovieResult } from "../interfaces/interface";
 // }
 
 export default class getMovie {
-   static async getAllBySearch( ) {
-      const response = await axios.get<{
-         Search: IMovie[];
-         totalResults: string;
-         Response: boolean;
-      }>(
-         `https://omdbapi.com/?s=spider&apikey=3140da31&page=1`
-      );
-      if (response.data.Search) {
-         return response.data.Search;
-      }
-      console.log(response.data.Search)
-   };
+   // static async getAllBySearch( ) {
+   //    const response = await axios.get<{
+   //       Search: IMovie[];
+   //       totalResults: string;
+   //       Response: boolean;
+   //    }>(
+   //       `https://omdbapi.com/?s=spider&apikey=3140da31&page=1`
+   //    );
+   //    if (response.data.Search) {
+   //       return response.data.Search;
+   //    }
+   //    console.log(response.data.Search)
+   // };
 
    static async getMovieById(movieId: string) {
       const response = await axios.get<IMovieResult>(

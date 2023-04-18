@@ -5,7 +5,7 @@ import useDebounce from '../../hooks/useDebounce';
 import { IMovie } from '../../interfaces/interface';
 import getMovie from '../../services';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { fetchMovies } from '../../redux/actions/actionCreator';
+// import { fetchMovies } from '../../redux/actions/actionCreator';
 import HeaderInput from '../HeaderInput/HeaderInput';
 // import movieDetailResult from '../movieResult/MovieResult'
 import MovieResult from '../movieResult/MovieResult';
