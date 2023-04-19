@@ -1,14 +1,14 @@
 /* Header */
 
 header {
-   background-color: black;
+   background: #000;
    height: 100px;
    flex: 1 0 auto;
    /* position: fixed; */
 }
 
 .header-content {
-   background-color: black;
+   /* background: linear-gradient(180deg, rgba(0, 0, 0, 1) 52%, rgba(0, 0, 0, 0.8926164215686274) 93%, rgba(0, 0, 0, 0.8309917717086834) 100%);; */
    display: flex;
 }
 

@@ -24,4 +24,5 @@ export interface IMovieResult {
    Type: string,
    Poster: string,
    Awards: string,
+
 }

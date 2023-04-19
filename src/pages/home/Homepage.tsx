@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './homepage.css';
 import '../layout/layout.css';
-import MovieResult from '../../components/movieResult/MovieResult';
+import MovieResult from '../../components/movieResult/SearchingResult';
 
 
 import { RootState } from '../../redux/store/store';

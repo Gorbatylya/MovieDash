@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 // import { fetchMovies } from '../../redux/actions/actionCreator';
 import HeaderInput from '../HeaderInput/HeaderInput';
 // import movieDetailResult from '../movieResult/MovieResult'
-import MovieResult from '../movieResult/MovieResult';
+import MovieResult from '../movieResult/SearchingResult';
 
 
 

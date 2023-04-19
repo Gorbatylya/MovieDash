@@ -2,6 +2,10 @@
 body{
   font-family: 'Poppins';
 }
+
+html{
+  scroll-behavior: smooth;
+}
 /* Указываем box sizing */
 *,
 *::before,
@@ -24,7 +28,7 @@ h4,
 p,
 ul[class],
 ol[class],
-li {
+li{
   margin: 0;
 }
 

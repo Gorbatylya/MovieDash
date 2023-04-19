@@ -5,10 +5,15 @@
 }
 
 .blog-search-content{
-   display: flex;
+   
    
    margin-top: 50px;
+   
+}
 
+.search-film-card-wrap{
+   display: flex;
+   height: 500px;
 }
 
 .blog-search-title{
@@ -89,6 +94,36 @@
 
 /* SEARCH LIST */
 
+.button-show-all{
+   position: absolute;
+   z-index: 55;
+   padding: 10px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 380px;
+   border-top: rgb(19, 19, 19) 2px solid;
+   margin-top: 10px;
+}
+
+.button-show-all a{
+   height: 34px;
+   width: 150px;
+   background-color: rgb(19, 19, 19);
+   color: #aeabab;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   font-size: 16px;
+   text-align: center;
+   margin: 0;
+}
+
+.button-show-all a:hover{
+   color: #fff;
+   transition: 0.3s;
+}
+
 .notFound {
    color: #fff;
    margin-left: 15px;
@@ -97,7 +132,7 @@
 .blog-search-list-active {
    position: absolute;
    top: 270px;
-   max-height: 220px;
+   max-height: 250px;
    max-width: 380px;
    width: 100%;
    overflow-y: scroll;
@@ -139,6 +174,9 @@
 .blog-search-item-info h3 {
    font-weight: 600;
    font-size: 16px;
+   max-height: 25px;
+   max-width: 250px;
+   overflow: hidden;
 }
 
 .blog-search-item-info p {
@@ -150,12 +188,12 @@
 
 /* SCROLL */
 
-.blog-search-list-active::-webkit-scrollbar {
+.blog-search-list-item::-webkit-scrollbar {
    width: 8px;
 }
 
-.blog-search-list-active::-webkit-scrollbar-thumb {
-   background-color: rgb(121, 69, 121);
+.blog-search-list-item::-webkit-scrollbar-thumb {
+   color: rgb(121, 69, 121);
    outline: none;
    border-radius: 10px;
 }

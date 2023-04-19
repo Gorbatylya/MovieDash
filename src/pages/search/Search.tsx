@@ -4,12 +4,12 @@ import '../home/homepage.css';
 import useDebounce from '../../hooks/useDebounce';
 import { IMovie, IMovieResult } from '../../interfaces/interface';
 import './search.css';
-import MovieResult from '../../components/movieResult/MovieResult';
 import { useAppDispatch, useAppSelector} from '../../hooks/redux';
 import {
   addToFavourites, deleteMovie
 } from "../../redux/reducers/MovieFavoriteSlice";
 import ButtonForFavourites from '../../components/buttonForFavorite/ButtonForFavorite';
+import SearchingResult from '../../components/movieResult/SearchingResult';
 // import { checkInFavorite } from '../../components/buttonForFavorite/ButtonForFavorite';
 
 
@@ -35,7 +35,29 @@ const Movies = () => {
   const [isSearching, setIsSearching] = useState(false);
   const [getItem, setGetItem] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [movie, setMovie] = useState<IMovieResult>();
+  const [movieDetail, setmovieDetail] = useState(false);
+  // for modal window 
+  const [isShow, setIsShow] = useState(false)
 
+  function showResult(){
+    if (isError || search === ''){
+      return setIsShow(false)
+    }
+    else
+    setIsShow(true)
+    // setGetItem(false)
+  }
+
+  async function loadMovieDetails(imdbID: any) {
+    const URL = `https://omdbapi.com/?i=${imdbID}&apikey=3140da31`;
+    const res = await fetch(`${URL}`);
+    const data: IMovieResult = await res.json();
+    if (data)
+      return setMovie(data),
+        setmovieDetail(true)
+    else console.log('error')
+  }
 
   const debouncedSearchTerm = useDebounce(search, 500);
 
@@ -70,60 +92,12 @@ const Movies = () => {
     [debouncedSearchTerm]
   );
 
-  const dispatch = useAppDispatch();
-  const { favoriteMovies } = useAppSelector(
-    (state) => state.movieFavoriteReducer
-  );
-
-  const [inFavorite, setInFavorite] = useState(true);
-
-  async function loadMovieDetails(imdbID: any) {
-    const URL = `https://omdbapi.com/?i=${imdbID}&apikey=3140da31`;
-    const res = await fetch(`${URL}`);
-    const data: IMovieResult= await res.json();
-    
-
-    // if (!favoriteMovies.find(
-    //   (favoriteMovie) => favoriteMovie.imdbID === data.imdbID))
-    //   return setInFavorite(true)
-    // else return setInFavorite(false)
-    // setInFavorite(false)
-    if (data !== undefined)
-      return setMovie(data),
-              setmovieDetail(true)
-    else console.log('error')
-  }
-
-  const [movie, setMovie] = useState<IMovieResult>();
-  const [movieDetail, setmovieDetail] = useState(false);
-
-
-  // const [inFavorite, setInFavorite] = useState(true);
-
-
-
-  // function addMovies() {
-  //   dispatch(addToFavourites(movie))
-  //   setInFavorite(false)
-  // }
-
-  // function deleteMovies() {
-  //   dispatch(deleteMovie(movie))
-  //   setInFavorite(true)
-  // }
-
-  // function checkInFavorite() {
-  //   if (!favoriteMovies.find((favoriteMovie) => favoriteMovie.imdbID === movie.imdbID))
-  //     return setInFavorite(true)
-  //   else setInFavorite(false)
-  // }
-
-
-
   return (
     <div className='blog-search'>
       <div className='container'>
         <div className="blog-search-content">
+
+          <div className="search-film-card-wrap">
           <div className='blog-search-input-wrap'>
               
             <div><h2 className='blog-search-title'>Search Movies:</h2></div>
@@ -131,12 +105,13 @@ const Movies = () => {
             <div>
               <div className='blog-search-input-loop'>
                 <input className='blog-search-input' placeholder='Film, Series' onChange={e => setSearchTerm(e.target.value)} />
-                <div className='blog-search-loop-wrap'><a className='fa-solid fa-magnifying-glass fa-lg search-loop'></a></div>
+                  <div className='blog-search-loop-wrap' onClick={() => showResult()}><a className='fa-solid fa-magnifying-glass fa-lg search-loop' href="#search-result"></a></div>
               </div>
               {isSearching && <div><i className="fa-regular fa-loader fa-spin"></i></div>}
               
-              {getItem && <div className="blog-search-list-active" id="blog-search-list" >
-                      {/* {isError && <div className='notFound'>More letters</div>} */}
+              {getItem && 
+              <div className="blog-search-list-active" id="blog-search-list" >
+                      {isError && <div className='notFound'>More letters</div>}
                         {result.map((item: IMovie) => (
                             <div className="blog-search-list-item"
                               key={item.imdbID}
@@ -151,9 +126,13 @@ const Movies = () => {
                             </div>
                           ),
                           )
-                          
                         }
+                      
+                    <div className='button-show-all'>
+                      <a onClick={() => showResult()} href = "#search-result">Show All</a>
+                    </div>
                 </div>
+                  
               }
             </div>
           </div >
@@ -214,6 +193,12 @@ const Movies = () => {
             
             }
             </div>
+          </div>
+            
+          {isShow ? <div id='search-result'><SearchingResult movie={result}></SearchingResult></div>
+          : ''  
+        }
+
         </div>
           </div>
         </div>

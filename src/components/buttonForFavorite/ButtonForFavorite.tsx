@@ -12,7 +12,7 @@ import { IMovieResult } from "../../interfaces/interface";
 
 const ButtonForFavourites = (movie:any) => {
 
-   // const [inFavorite, setInFavorite] = useState(true);
+   const [inFavorite, setInFavorite] = useState(false);
 
    const dispatch = useAppDispatch();
    const { favoriteMovies } = useAppSelector(
@@ -20,15 +20,21 @@ const ButtonForFavourites = (movie:any) => {
    );
 
    console.log(movie)
-//   function addMovies (){
-//      dispatch(addToFavourites(movie))
-//      setInFavorite(false)
-//   }
 
-//    function deleteMovies() {
-//       dispatch(deleteMovie(movie))
-//       setInFavorite(true)
-//    }
+   // if(favoriteMovies.find((favoriteMovie) => (favoriteMovie as any)?.movie.imdbID === movie?.movie.imdbID))
+   //    return setInFavorite(true)
+   // else setInFavorite(false)
+
+  function addMovies (){
+
+     dispatch(addToFavourites(movie?.movie))
+     setInFavorite(true)
+  }
+
+   function deleteMovies() {
+      dispatch(deleteMovie(movie?.movie))
+      setInFavorite(false)
+   }
       // function checkInFavorite(){
    //    if(!favoriteMovies.find((favoriteMovie) => favoriteMovie.imdbID === movie.imdbID))
    //       return setInFavorite(true)
@@ -39,13 +45,13 @@ const ButtonForFavourites = (movie:any) => {
   // setInFavorite(true)
    return (
       <>
-         {!favoriteMovies.find((favoriteMovie) => favoriteMovie.imdbID === movie.imdbID) ? (
-            <div className='favorite-button' onClick={() => dispatch(addToFavourites(movie))}>
-               <i className="fa-regular fa-heart fa-2xl"></i>
+         {favoriteMovies.find((favoriteMovie) => (favoriteMovie as any).movie?.imdbID == movie.movie?.imdbID) ? (
+            <div >
+               <i className='fa-solid fa-heart fa-2xl' onClick={() => dispatch(deleteMovie(movie.movie))} ></i>
             </div>
          )
-            : (<div onClick={() => dispatch(deleteMovie(movie))}>
-               <i  className='fa-solid fa-heart fa-2xl'></i>
+            : (<div className='favorite-button' >
+                  <i className="fa-regular fa-heart fa-2xl" onClick={() => dispatch(addToFavourites(movie.movie))}></i>
                </div>)
          }
       </>
