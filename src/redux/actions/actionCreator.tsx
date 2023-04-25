@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { IMovie } from "../../interfaces/interface";
 import { AppDispatch } from "../store/store";
 import {MovieSlice} from "../reducers/MovieSlice";
-import axios from "axios";
+
 import getMovie from "../../services";
 
 
