@@ -94,6 +94,12 @@ const Movies = () => {
     [debouncedSearchTerm]
   );
 
+  function searchByEnter(e:any){
+    if (e.keyCode === 13) {
+      showResult()
+    }
+  }
+
 
   return (
     <div className='blog-search'>
@@ -107,12 +113,13 @@ const Movies = () => {
 
             <div>
               <div className='blog-search-input-loop'>
-                <input className='blog-search-input' placeholder='Film, Series' onChange={e => setSearchTerm(e.target.value)} />
+                <input className='blog-search-input' placeholder='Film, Series' onChange={e => setSearchTerm(e.target.value) }/>
                   <div className='blog-search-loop-wrap' onClick={() => showResult()}><a className='fa-solid fa-magnifying-glass fa-lg search-loop' href="#search-result"></a></div>
               </div>
               {isSearching && <div><i className="fa-regular fa-loader fa-spin"></i></div>}
               
               {getItem && 
+              <div className='blog-search-list'> 
               <div className="blog-search-list-active" id="blog-search-list" >
                     {isError && <div className='notFound'>Nothing found</div>}
                         {result.map((item: IMovie) => (
@@ -131,11 +138,12 @@ const Movies = () => {
                           )
                         }
                       
-                    <div className='button-show-all'>
-                      <a onClick={() => showResult()} href = "#search-result">Show All</a>
-                    </div>
+                   
                 </div>
-                  
+                    <div className='button-show-all'>
+                      <a onClick={() => showResult()} href="#search-result">Show All</a>
+                    </div>
+              </div>    
               }
             </div>
           </div >

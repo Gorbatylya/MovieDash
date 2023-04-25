@@ -50,20 +50,12 @@ const ButtonForFavourites = (movie:any) => {
             <div onClick={() => dispatch(addToFavourites(movie?.movie))}>
                <i className="fa-regular fa-heart fa-2xl"></i>
             </div>
-         ) : null}
+         ) : (
+            <div onClick={() => dispatch(deleteMovie(movie?.movie))}>
+               <i className="fa-solid fa-heart fa-2xl"></i>
+            </div>
+         )}
 
-         {favoriteMovies.find((favoriteMovie) => favoriteMovie.imdbID === movie.imdbID
-         ) ? (
-               <div onClick={() => dispatch(deleteMovie(movie?.movie))}>
-                  <i className="fa-solid fa-heart fa-2xl"></i>
-               </div>
-         ) : 
-         //    <div onClick={() => dispatch(deleteMovie(movie?.movie))}>
-         //       <i className="fa-solid fa-heart fa-2xl"></i>
-         //    </div>
-         // )
-         null
-      }
       </>
    );
 };

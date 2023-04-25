@@ -107,7 +107,27 @@ img {
 }
 
 .btn-next-page{
-   width: 200px;
+   width: 150px;
+   background-color: rgb(171, 104, 171);
+   border:none;
+   cursor: pointer;
+   border-radius: 3px;
+   height: 38px;
+}
+
+.btn-next-page:hover{
+   background-color: rgb(145, 88, 145);
+   transition: 0.3ms;
+}
+
+.btn-last-page{
+   height: 38px;
+   border-radius: 3px;
+   width: 170px;
+   font-size: 13px;
+   background-color: rgba(212, 126, 212, 0.421);
+   border:none;
+   cursor: pointer;
 }
 
 

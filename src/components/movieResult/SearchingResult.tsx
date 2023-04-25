@@ -13,17 +13,18 @@ const SearchingResult = (movie:any, search:string) => {
 
    const [newMovie, setnewMovie] = useState([]);
    const [isShowDetail, setShowDetail] = useState(false);
-   const [imdbID, setImdbID] = useState()
+   const [imdbID, setImdbID] = useState();
+   const [showButton, setShowButton] = useState(true)
 
    async function searchRequest( search:string, currentPage:number) {
       const URL = `https://omdbapi.com/?s=${search}&apikey=3140da31&page=${currentPage}`;
       const res = await fetch(`${URL}`);
       const data = await res.json();
       // console.log(data.Search);
-      setnewMovie(data.Search)
+      
       if (data.Search)
-         return data.Search
-      else console.log('error')
+         return setnewMovie(data.Search)
+      else setShowButton(false)
    }
 
    const [currentPage, setCurrentPage] = useState(2);
@@ -71,7 +72,10 @@ const SearchingResult = (movie:any, search:string) => {
                        </div>
                     </li>
                  ))}
+                 {showButton ?
                  <div><button className="btn-next-page" onClick={()=>nextPage()}>NEXT PAGE</button></div>
+                    : <div><button className="btn-last-page">No more movies found</button></div>
+                  }
                </ul>
                
               {isShowDetail ? 
