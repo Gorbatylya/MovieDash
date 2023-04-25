@@ -12,50 +12,61 @@ import { IMovieResult } from "../../interfaces/interface";
 
 const ButtonForFavourites = (movie:any) => {
 
-   const [inFavorite, setInFavorite] = useState(false);
+   const [inFavorite, setInFavorite] = useState(false)
+
 
    const dispatch = useAppDispatch();
    const { favoriteMovies } = useAppSelector(
       (state) => state.movieFavoriteReducer
    );
 
-   console.log(movie)
-
    // if(favoriteMovies.find((favoriteMovie) => (favoriteMovie as any)?.movie.imdbID === movie?.movie.imdbID))
    //    return setInFavorite(true)
    // else setInFavorite(false)
 
-  function addMovies (){
+//   function addMovies (){
 
-     dispatch(addToFavourites(movie?.movie))
-     setInFavorite(true)
-  }
+//      dispatch(addToFavourites(movie?.movie))
+//      setInFavorite(true)
+//   }
 
-   function deleteMovies() {
-      dispatch(deleteMovie(movie?.movie))
-      setInFavorite(false)
-   }
-      // function checkInFavorite(){
-   //    if(!favoriteMovies.find((favoriteMovie) => favoriteMovie.imdbID === movie.imdbID))
-   //       return setInFavorite(true)
-   //    else setInFavorite(false)
-   // }
+//    function deleteMovies() {
+//       dispatch(deleteMovie(movie?.movie))
+//       setInFavorite(false)
+//    }
+
+      // if (favoriteMovies.find((favoriteMovie) => (favoriteMovie as any).movie?.imdbID == movie.movie?.imdbID)){
+      //    setInFavorite(true)}
+      // else setInFavorite(false)
+   
+
    // for favourite-button
-   // const [inFavorite, setInFavorite] = useState(false)
+   
   // setInFavorite(true)
    return (
       <>
-         {favoriteMovies.find((favoriteMovie) => (favoriteMovie as any).movie?.imdbID == movie.movie?.imdbID) ? (
-            <div >
-               <i className='fa-solid fa-heart fa-2xl' onClick={() => dispatch(deleteMovie(movie.movie))} ></i>
+         {!favoriteMovies.find((favoriteMovie) => favoriteMovie.imdbID === movie.imdbID
+         ) ? (
+            <div onClick={() => dispatch(addToFavourites(movie?.movie))}>
+               <i className="fa-regular fa-heart fa-2xl"></i>
             </div>
-         )
-            : (<div className='favorite-button' >
-                  <i className="fa-regular fa-heart fa-2xl" onClick={() => dispatch(addToFavourites(movie.movie))}></i>
-               </div>)
-         }
+         ) : null}
+
+         {favoriteMovies.find((favoriteMovie) => favoriteMovie.imdbID === movie.imdbID
+         ) ? (
+               <div onClick={() => dispatch(deleteMovie(movie?.movie))}>
+                  <i className="fa-solid fa-heart fa-2xl"></i>
+               </div>
+         ) : 
+         //    <div onClick={() => dispatch(deleteMovie(movie?.movie))}>
+         //       <i className="fa-solid fa-heart fa-2xl"></i>
+         //    </div>
+         // )
+         null
+      }
       </>
    );
 };
+
 
 export default ButtonForFavourites;

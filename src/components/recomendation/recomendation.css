@@ -1,0 +1,137 @@
+::-webkit-scrollbar {
+   display: none;
+}
+
+.recommendation {
+   /* background-color: rgb(12, 12, 12); */
+   max-height: 700px;
+   height: 100%;
+   border-top: rgb(12, 12, 12) 8px solid;
+}
+
+.recommendation-content {
+   margin-top: 40px;
+   margin-bottom: 40px;
+   position: relative;
+}
+
+
+
+.recommendation-title {
+   font-size: 21px;
+   overflow: hidden;
+}
+
+.recommendation-list ul{
+   padding: 30px;
+   display: flex;
+   padding-left: 100px !important;
+   overflow: auto;
+   /* position: relative; */
+   /* margin: 0 !important; */
+}
+
+.recommendation-list-item {
+   display: flex;
+   flex-direction: column;
+   height: 300px;
+   width: 200px;
+   margin: 10px;
+   align-items: center;
+   justify-content: center;
+}
+
+.recommendation-list-item:hover {
+   background: #020202a6;
+   cursor: pointer;
+   transition: 0.3s;
+}
+
+.recommendation-list-item-thumbnail {
+   height: 200px;
+   width: 150px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin-bottom: 10px;
+}
+
+.recommendation-list-item-thumbnail img {
+   height: 200px;
+   width: 150px;
+}
+
+.recommendation-list-item-info h3 {
+   font-size: 16px;
+   color: rgb(212, 126, 212);
+   max-height: 25px;
+   max-width: 170px;
+   overflow: hidden;
+}
+
+img {
+   max-width: 100%;
+   height: auto
+}
+
+.list {
+   display: flex;
+   overflow-x: auto;
+   list-style: none;
+   padding: 0;
+   margin: 0;
+}
+
+.shadow {
+   position: absolute;
+   box-shadow: 0 0 30px -8px #232628;
+   position: absolute;
+   z-index: 1;
+   top: 50%;
+   right: -25px;
+   width: 24px;
+   height: 80%;
+   border-radius: 50%;
+   transform: translateY(-50%);
+}
+
+.leftShadow {
+   box-shadow: 0 0 30px -8px #232628;
+   left: -25px;
+}
+
+.rightShadow {
+   box-shadow: 0 0 30px -8px #232628;
+   right: -25px;
+}
+
+.shadow--hidden {
+   display: none;
+}
+
+.button {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   width: 60px;
+   height: 60px;
+   border-radius: 50%;
+   border: none;
+   background-color: #89868642;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.122);
+   font-size: 25px;
+   cursor: pointer;
+   z-index: 40;
+   color: #625d5d;
+   transition: 1s ease;
+}
+
+.button:hover {
+   transition: 0.5s;
+   background-color: #89868689;
+   color: #1e1c1c;
+}
+
+.buttonRight {
+   right: 20px;
+}

@@ -2,14 +2,16 @@
    padding: 30px;
    display: flex;
    max-width: 1200px;
+   flex-wrap: wrap;
 }
 
 .favourite-list-item {
    display: flex;
    flex-direction: column;
    height: 300px;
-   width: 200px;
+   max-width: 200px;
    margin: 20px;
+   position: relative;
 }
 
 .favourite-list-item-thumbnail {
@@ -26,7 +28,29 @@
    width: 150px;
 }
 
+.favourite-list-item-info{
+   max-height: 40px;
+}
+
 .favourite-list-item-info h3 {
    font-size: 16px;
    color: rgb(212, 126, 212)
+}
+
+.fa-trash-can{
+   color: white;
+}
+
+.fa-trash-can:hover{
+   color: rgb(212, 126, 212)
+}
+
+.btn-delete{
+   position: absolute;
+   display: flex;
+   justify-content: end;
+   padding-right: 30px;
+   padding-top: 10px;
+   top: 260px;
+   left:120px
 }

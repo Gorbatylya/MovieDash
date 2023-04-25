@@ -11,13 +11,14 @@ import {
 import ButtonForFavourites from '../../components/buttonForFavorite/ButtonForFavorite';
 import SearchingResult from '../../components/movieResult/SearchingResult';
 // import { checkInFavorite } from '../../components/buttonForFavorite/ButtonForFavorite';
+import MovieDetail from '../../components/movieDetail/MovieDetail';
 
 
 async function searchRequest(search: any) {
-  const URL = `https://omdbapi.com/?s=${search}&page=1&apikey=3140da31`;
+  const URL = `https://omdbapi.com/?s=${search}&apikey=3140da31`;
   const res = await fetch(`${URL}`);
   const data = await res.json();
-  console.log(data.Search);
+  // console.log(search);
 
   if (data.Search)
     return data.Search
@@ -26,6 +27,7 @@ async function searchRequest(search: any) {
 
 
 const Movies = () => {
+
 
   // для поискового запроса
   const [search, setSearchTerm] = useState('');
@@ -38,7 +40,7 @@ const Movies = () => {
   const [movie, setMovie] = useState<IMovieResult>();
   const [movieDetail, setmovieDetail] = useState(false);
   // for modal window 
-  const [isShow, setIsShow] = useState(false)
+  const [isShow, setIsShow] = useState(false);
 
   function showResult(){
     if (isError || search === ''){
@@ -55,7 +57,8 @@ const Movies = () => {
     const data: IMovieResult = await res.json();
     if (data)
       return setMovie(data),
-        setmovieDetail(true)
+        setmovieDetail(true),
+    console.log(data)
     else console.log('error')
   }
 
@@ -67,6 +70,7 @@ const Movies = () => {
         // изм состояние isSearching
         setGetItem(true)
         setIsSearching(true);
+        setIsShow(false)
         // запрос к АПИ
         searchRequest(debouncedSearchTerm).then(results => {
           // состояние в false, тк запрос завершен
@@ -92,6 +96,7 @@ const Movies = () => {
     [debouncedSearchTerm]
   );
 
+
   return (
     <div className='blog-search'>
       <div className='container'>
@@ -111,7 +116,7 @@ const Movies = () => {
               
               {getItem && 
               <div className="blog-search-list-active" id="blog-search-list" >
-                      {isError && <div className='notFound'>More letters</div>}
+                    {isError && <div className='notFound'>Nothing found</div>}
                         {result.map((item: IMovie) => (
                             <div className="blog-search-list-item"
                               key={item.imdbID}
@@ -140,31 +145,7 @@ const Movies = () => {
             <div className='film-card'>
 
             {movieDetail && 
-              <div className="result-content" id="result-content">
-              <div className="movie-poster">
-                <img src={(movie?.Poster != "N/A") ? movie?.Poster : "/image/no_image.jpg"} alt="movie poster" />
-              </div>
-              <div className="movie-info">
-                <h3 className="movie-title">{movie?.Title}</h3>
-                <ul className="movie-misc-info">
-                    <li className="year">Year: {movie?.Year}</li>
-                    <li className="rated">Ratings: {movie?.Rating}</li>
-                    <li className="released">Released: {movie?.Released}</li>
-                </ul>
-                <p className="genre"><b>Genre:</b> {movie?.Genre}</p>
-                  <p className="writer"><b>Writer:</b> {movie?.Writer}</p>
-                  <p className="actors"><b>Actors: </b>{movie?.Actors}</p>
-                  <p className="plot"><b>Plot:</b> {movie?.Plot}</p>
-                  <div className='info-heart'>
-                    <div>
-                      <p className="language"><b>Language:</b>{movie?.Language}</p>
-                      <p className="awards"><b><i className="fas fa-award"></i></b>{movie?.Awards}</p>
-                    </div>
-                   <ButtonForFavourites movie={movie}></ButtonForFavourites>
-                  </div>
-
-              </div>
-            </div>
+                <MovieDetail movie={movie?.imdbID}></MovieDetail>
             ||
               <div className="result-content" id="result-content">
                 <div className="movie-poster">
@@ -186,7 +167,6 @@ const Movies = () => {
                       <p className="language"><b>Language:</b>Italian</p>
                       <p className="awards"><b><i className="fas fa-award"></i></b>no information</p>
                     </div>
-                    {/* <ButtonForFavourites movie={movie} ></ButtonForFavourites> */}
                   </div>
                 </div>
               </div>
@@ -194,8 +174,10 @@ const Movies = () => {
             }
             </div>
           </div>
+
+          {/* <div id='search-result'><SearchingResult movie={result} search={search}></SearchingResult></div> */}
             
-          {isShow ? <div id='search-result'><SearchingResult movie={result}></SearchingResult></div>
+          {isShow ? <div id='search-result'><SearchingResult movie={result} search={search}></SearchingResult></div>
           : ''  
         }
 

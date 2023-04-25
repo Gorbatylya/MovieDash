@@ -1,14 +1,12 @@
 .blog-search{
    display: flex;
    min-height: 550px;
+   height: auto;
    background-color: rgb(19, 19, 19);
 }
 
 .blog-search-content{
-   
-   
    margin-top: 50px;
-   
 }
 
 .search-film-card-wrap{

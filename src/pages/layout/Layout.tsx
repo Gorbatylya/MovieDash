@@ -17,8 +17,9 @@ const Layout = () => {
         </main>
 
         <footer>
-         <div className='footer-content'>
-              <div className='container'>
+          <div className='container'>
+            <div className='footer-content'>
+            <div className='footer-info-left'>
                 <img src='/image/moviedash.gif' className='footer-logo'></img>
                 <div className='footer-icon-wrap'>
                     <div className='footer-icon'><i className="fa-brands fa-vk fa-2xl"></i></div>
@@ -29,7 +30,13 @@ const Layout = () => {
                 <h3 className='footer__bottom-info'>
                   © 2003 — 2023 MovieDash
                 </h3>
+            </div>
+                <div className='footer-info-right'>
+                  <h3>«MovieDash», location address: 113567, USA, Washington, District of Columbia.</h3>
+                  <h3>Address for user requests: moviedash@support.mail.ru</h3>
+                </div>
               </div>
+
            </div>
         </footer>
      

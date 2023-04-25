@@ -10,6 +10,7 @@ import { useAppSelector } from '../../hooks/redux';
 import { useAppDispatch } from '../../hooks/redux';
 import { MovieSlice } from '../../redux/reducers/MovieSlice';
 import { useDispatch } from 'react-redux';
+import Recomendation from '../../components/recomendation/Recomendation';
 // import { fetchMovies } from '../../redux/actions/actionCreator';
 
 const Homepage = () => {
@@ -46,9 +47,11 @@ const Homepage = () => {
         <div className='gradient'>
           <img src='/image/background.jpeg' className='banner-ImgBackground'></img>
           <div className='container'>
-            <h3 className='banner-header'>
-              Здесь могла быть Ваша реклама
-            </h3>
+            <div className='banner-header'>
+              <h3>Information about movies and series</h3>
+              <h3 className='banner-header-h3'>for free</h3>
+            </div>
+            <a className='banner-btn-tosearch' href='http://localhost:3000/search'>To start searching</a>
           </div>
         </div>
       </div>
@@ -69,21 +72,7 @@ const Homepage = () => {
       </div> */}
       
       <div className="recomendation">
-        <div className="container">
-          <div className="recomendation__content">
-          {/* {result.map((item: IMovie) => ( */}
-            <div className="recomendation-item"  >
-              <div className="recomendation-thumbnail">
-                <img src="/image/no_image.jpg" className='recomendation-img' />
-              </div>
-              <div className="recomendation-info">
-                <h3>Dasha</h3>
-                <p>2023</p>
-              </div>
-            </div>
-          {/* ))} */}
-          </div>
-        </div>
+        <Recomendation></Recomendation>
       </div>
 
     </div>

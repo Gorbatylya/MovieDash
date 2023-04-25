@@ -64,6 +64,8 @@ footer {
    padding: 20px;
    background-color: black;
    /* margin: auto; */
+   display: flex;
+   justify-content: space-between;
 }
 
 .footer-icon-wrap{
@@ -79,8 +81,19 @@ footer {
    color: #9f9f9fe7;
 }
 
+.fa-brands:hover{
+   color: #ffffff;
+   transition: 0.3s;
+   cursor: pointer;
+}
+
 .footer-logo{
    margin-top: 20px;
+}
+
+.footer-info-left{
+   display: flex;
+   flex-direction: column;
 }
 
 .footer__bottom-info{
@@ -88,6 +101,19 @@ footer {
    font-size: 12px;
    margin-left: 20px;
    margin-top: 50px;
+}
+
+.footer-info-right{
+   color: rgba(255, 255, 255, 0.3);
+   display: flex;
+   justify-content: center;
+   align-items: end;
+   flex-direction: column;
+}
+
+.footer-info-right h3{
+   margin: 15px;
+   font-size: 12px;
 }
 
 /* icon */

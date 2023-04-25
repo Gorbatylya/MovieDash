@@ -8,9 +8,39 @@
 .banner-header {
    position: absolute;
    z-index: 50;
-   top: 50%;
-   left: 30%;
-   font-size: 35px;
+   top: 35%;
+   left: 20%;
+   font-size: 40px;
+   height: 50px;
+}
+
+.banner-header-h3{
+   margin-top: 50px;
+   margin-left: 40%;
+}
+
+.banner-btn-tosearch{
+   position: absolute;
+   z-index: 50;
+   top: 57%;
+   left: 41%;
+   color: #ffffff;
+   /* border: #ffffff 1px solid; */
+   border-radius: 5px;
+   width: 200px;
+   height: 70px;
+   background-color: #8e4086;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   font-size: 18px;
+   font-weight: 500;
+}
+
+.banner-btn-tosearch:hover{
+   background-color: #672d61;
+   transition: 0.2s;
 }
 
 .banner-ImgBackground {
