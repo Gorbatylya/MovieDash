@@ -10,7 +10,7 @@
    z-index: 50;
    top: 35%;
    left: 20%;
-   font-size: 40px;
+   font-size: 37px;
    height: 50px;
 }
 
@@ -23,7 +23,7 @@
    position: absolute;
    z-index: 50;
    top: 57%;
-   left: 41%;
+   left: 40%;
    color: #ffffff;
    /* border: #ffffff 1px solid; */
    border-radius: 5px;

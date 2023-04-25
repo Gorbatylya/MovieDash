@@ -145,7 +145,31 @@ const Movies = () => {
             <div className='film-card'>
 
             {movieDetail && 
-                <MovieDetail movie={movie?.imdbID}></MovieDetail>
+
+                <div className="result-content" id="result-content" key={movie?.imdbID}>
+                  <div className="movie-poster">
+                    <img src={(movie?.Poster != "N/A") ? movie?.Poster : "/image/no_image.jpg"} alt="movie poster" />
+                  </div>
+                  <div className="movie-info">
+                    <h3 className="movie-title">{movie?.Title}</h3>
+                    <ul className="movie-misc-info">
+                      <li className="year">Year: {movie?.Year}</li>
+                      <li className="rated">Ratings: {movie?.Rating}</li>
+                      <li className="released">Released: {movie?.Released}</li>
+                    </ul>
+                    <p className="genre"><b>Genre:</b> {movie?.Genre}</p>
+                    <p className="writer"><b>Writer:</b>{movie?.Writer}</p>
+                    <p className="actors"><b>Actors: </b>{movie?.Actors}</p>
+                    <p className="plot"><b>Plot:</b>{movie?.Plot}</p>
+                    <div className='info-heart'>
+                      <div>
+                        <p className="language"><b>Language:</b>{movie?.Language}</p>
+                        <p className="awards"><b><i className="fas fa-award"></i></b>{movie?.Awards}</p>
+                      </div>
+                      <ButtonForFavourites movie={movie}></ButtonForFavourites>
+                    </div>
+                  </div>
+                </div>
             ||
               <div className="result-content" id="result-content">
                 <div className="movie-poster">
@@ -174,8 +198,6 @@ const Movies = () => {
             }
             </div>
           </div>
-
-          {/* <div id='search-result'><SearchingResult movie={result} search={search}></SearchingResult></div> */}
             
           {isShow ? <div id='search-result'><SearchingResult movie={result} search={search}></SearchingResult></div>
           : ''  
