@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import './recomendation.css';
 import { IMovieResult } from '../../interfaces/interface';
 import { useAppSelector, useAppDispatch } from '../../hooks/redux';
-import { fetchMovieById } from '../../redux/actions/actionCreator';
+// import { fetchMovieById } from '../../redux/actions/actionCreator';
 
 
 // async function movieDetailResult() {

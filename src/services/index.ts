@@ -1,4 +1,4 @@
-import axios from "axios";
+
 import { IMovie, IMovieResult } from "../interfaces/interface";
 
 // export default class getMovie {
@@ -38,14 +38,14 @@ export default class getMovie {
    //    console.log(response.data.Search)
    // };
 
-   static async getMovieById(movieId: string) {
-      const response = await axios.get<IMovieResult>(
-         `http://www.omdbapi.com/?i=${movieId}&apikey=3140da31`
-      );
-      if (movieId) {
-         return [response.data];
-      }
-   }
+   // static async getMovieById(movieId: string) {
+   //    const response = await axios.get<IMovieResult>(
+   //       `http://www.omdbapi.com/?i=${movieId}&apikey=3140da31`
+   //    );
+   //    if (movieId) {
+   //       return [response.data];
+   //    }
+   // }
 }
 // async function getMovie(search: string) {
 //    const URL = `https://omdbapi.com/?s=${search}&apikey=3140da31&page=1`;

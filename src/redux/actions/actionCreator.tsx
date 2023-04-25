@@ -21,19 +21,19 @@ import getMovie from "../../services";
 //    }
 // );
 
-export const fetchMovieById = createAsyncThunk(
-   "movie/fetchById",
-   async ({ movieId }: any, thunkAPI: any) => {
-      try {
-         const response = await getMovie.getMovieById(movieId);
-         return response;
-      } catch (error) {
-         return thunkAPI.rejectWithValue(
-            "Loading information failed"
-         );
-      }
-   }
-);
+// export const fetchMovieById = createAsyncThunk(
+//    "movie/fetchById",
+//    async ({ movieId }: any, thunkAPI: any) => {
+//       try {
+//          const response = await getMovie.getMovieById(movieId);
+//          return response;
+//       } catch (error) {
+//          return thunkAPI.rejectWithValue(
+//             "Loading information failed"
+//          );
+//       }
+//    }
+// );
 
 // export const fetchMovies = createAsyncThunk(
 //    "movie/fetchAll",

@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import './SearchingResult.css';
 import { IMovieResult } from '../../interfaces/interface';
 import { useAppSelector,useAppDispatch } from '../../hooks/redux';
-import { fetchMovieById } from '../../redux/actions/actionCreator';
+// import { fetchMovieById } from '../../redux/actions/actionCreator';
 import MovieDetail from "../movieDetail/MovieDetail";
 
 
@@ -81,7 +81,7 @@ const SearchingResult = (movie:any, search:string) => {
                  </div>
                  <MovieDetail movie={imdbID}></MovieDetail>
                  </div> : 
-                 <h3>Loading</h3>}
+                 null}
             </div>
         </div>
     </div>
