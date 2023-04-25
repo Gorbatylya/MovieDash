@@ -10,8 +10,6 @@ import {
 } from "../../redux/reducers/MovieFavoriteSlice";
 import ButtonForFavourites from '../../components/buttonForFavorite/ButtonForFavorite';
 import SearchingResult from '../../components/movieResult/SearchingResult';
-// import { checkInFavorite } from '../../components/buttonForFavorite/ButtonForFavorite';
-import MovieDetail from '../../components/movieDetail/MovieDetail';
 
 
 async function searchRequest(search: any) {
