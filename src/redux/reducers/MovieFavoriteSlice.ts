@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IMovie, IMovieResult } from "../../interfaces/interface";
+import { IMovieResult } from "../../interfaces/interface";
 
 
 interface favoriteMoviestate {

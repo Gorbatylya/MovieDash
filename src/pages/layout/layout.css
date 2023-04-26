@@ -8,9 +8,13 @@ body{
 }
 
 .container {
-   width: 1200px;
+   max-width: 1200px;
    margin: 0 auto;
    /* overflow: auto; */
+}
+
+@media (max-width: 1269px) {
+   
 }
 
 /* Link */
@@ -38,7 +42,13 @@ a:hover {
    color: rgb(197, 196, 198);
 }
 
-
+@media (max-width: 1000px) {
+   a {
+      font-size: 12px;
+      margin: 10px;
+      text-decoration: none;
+   }
+}
 
 /* Main */
 
@@ -107,13 +117,50 @@ footer {
    color: rgba(255, 255, 255, 0.3);
    display: flex;
    justify-content: center;
-   align-items: end;
+   align-items: flex-end;
    flex-direction: column;
 }
 
 .footer-info-right h3{
    margin: 15px;
    font-size: 12px;
+}
+
+@media (max-width: 1000px) {
+   .footer-logo {
+         max-width: 200px;
+         max-height: 100px;
+         margin-top: 20px;
+         margin-left: 20px;
+      }
+
+   .footer-icon-wrap {
+      margin: 10px 40px;
+   }
+
+   .fa-brands {
+      font-size: 1.7em !important;
+   }
+   
+   .footer-icon-wrap {
+      display: flex;
+      margin: 10px 45px;
+   }
+
+   .footer__bottom-info {
+      font-size: 10px;
+      margin-left: 40px;
+      margin-top: 30px;
+   }
+
+   .footer-info-right{
+      margin-right: 20px;
+   }
+
+   .footer-info-right h3 {
+      margin: 12px;
+      font-size: 10px;
+   }
 }
 
 /* icon */
@@ -133,5 +180,14 @@ footer {
 .link-person::before{
    border: none !important; 
    color: rgb(212, 126, 212) !important;
+}
+
+@media (max-width: 1000px) {
+   a {
+      font-size: 12px;
+      margin: 20px;
+      text-decoration: none;
+   }
+
 }
 

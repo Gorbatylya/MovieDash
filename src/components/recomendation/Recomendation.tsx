@@ -1,22 +1,15 @@
 import { useState, useRef, useEffect } from "react";
-// import cn from "classnames";
 import debounce from "lodash.debounce";
-import { useParams } from 'react-router-dom';
 import './recomendation.css';
-import { IMovieResult } from '../../interfaces/interface';
-import { useAppSelector, useAppDispatch } from '../../hooks/redux';
-// import { fetchMovieById } from '../../redux/actions/actionCreator';
 
 
 // async function movieDetailResult() {
 //    const URL = `https://omdbapi.com/?i=tt10145122&page=1&apikey=3140da31`;
 //    const res = await fetch(`${URL}`);
 //    const data = await res.json();
-//    console.log(data);
 
 //    if (data)
 //       return data
-//    else console.log('error')
 // }
 
 const Recomendation = (movie: any) => {
@@ -50,7 +43,7 @@ const Recomendation = (movie: any) => {
          current?.removeEventListener("scroll", debounceCheckForScrollPosition);
          debounceCheckForScrollPosition.cancel();
       };
-   }, []);
+   }, [debounceCheckForScrollPosition]);
 
 
    return (
@@ -69,7 +62,7 @@ const Recomendation = (movie: any) => {
 
                            <li className="recommendation-list-item item">
                               <div className="recommendation-list-item-thumbnail">
-                              <img src='/image/recomm/king.jpg' />
+                              <img src='/image/recomm/king.jpg' alt="poster"/>
                               </div>
                               {/* <div className="recommendation-list-item-info">
                                  <h3>Super</h3>
@@ -79,7 +72,7 @@ const Recomendation = (movie: any) => {
 
                         <li className="recommendation-list-item item">
                            <div className="recommendation-list-item-thumbnail">
-                              <img src='/image/recomm/operation.jpg' />
+                           <img src='/image/recomm/operation.jpg' alt="poster" />
                            </div>
                            {/* <div className="recommendation-list-item-info">
                               <h3>Super</h3>
@@ -89,7 +82,7 @@ const Recomendation = (movie: any) => {
 
                         <li className="recommendation-list-item item">
                            <div className="recommendation-list-item-thumbnail">
-                              <img src='/image/recomm/actrise.jpg' />
+                           <img src='/image/recomm/actrise.jpg' alt="poster" />
                            </div>
                            {/* <div className="recommendation-list-item-info">
                               <h3>Super</h3>
@@ -99,7 +92,7 @@ const Recomendation = (movie: any) => {
 
                         <li className="recommendation-list-item item">
                            <div className="recommendation-list-item-thumbnail">
-                              <img src='/image/recomm/cold.jpg' />
+                           <img src='/image/recomm/cold.jpg' alt="poster" />
                            </div>
                            {/* <div className="recommendation-list-item-info">
                               <h3>Super</h3>
@@ -109,7 +102,7 @@ const Recomendation = (movie: any) => {
 
                         <li className="recommendation-list-item item">
                            <div className="recommendation-list-item-thumbnail">
-                              <img src='/image/recomm/spy.jpg' />
+                              <img src='/image/recomm/spy.jpg' alt="poster" />
                            </div>
                            {/* <div className="recommendation-list-item-info">
                               <h3>Super</h3>
@@ -119,7 +112,7 @@ const Recomendation = (movie: any) => {
 
                         <li className="recommendation-list-item item">
                            <div className="recommendation-list-item-thumbnail">
-                              <img src='/image/recomm/fisher.jpg' />
+                              <img src='/image/recomm/fisher.jpg' alt="poster" />
                            </div>
                            {/* <div className="recommendation-list-item-info">
                               <h3>Super</h3>
@@ -129,7 +122,7 @@ const Recomendation = (movie: any) => {
 
                      <li className="recommendation-list-item item">
                         <div className="recommendation-list-item-thumbnail">
-                           <img src='/image/recomm/mira.jpg' />
+                           <img src='/image/recomm/mira.jpg' alt="poster" />
                         </div>
                         {/* <div className="recommendation-list-item-info">
                            <h3>Super</h3>
@@ -139,7 +132,7 @@ const Recomendation = (movie: any) => {
 
                      <li className="recommendation-list-item item">
                         <div className="recommendation-list-item-thumbnail">
-                           <img src='/image/recomm/openrelan.jpg' />
+                           <img src='/image/recomm/openrelan.jpg' alt="poster" />
                         </div>
                         {/* <div className="recommendation-list-item-info">
                            <h3>Super</h3>
@@ -149,7 +142,7 @@ const Recomendation = (movie: any) => {
 
                      <li className="recommendation-list-item item">
                         <div className="recommendation-list-item-thumbnail">
-                           <img src='/image/recomm/crash.jpg' />
+                           <img src='/image/recomm/crash.jpg' alt="poster" />
                         </div>
                         {/* <div className="recommendation-list-item-info">
                            <h3>Super</h3>

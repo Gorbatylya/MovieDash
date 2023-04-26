@@ -113,3 +113,21 @@
 }
 
 
+@media (max-width: 1000px) {
+
+   .banner-header {
+      font-size: 25px;
+   }
+   
+      .banner-btn-tosearch {
+
+         top: 51%;
+         left: 36%;
+         width: 170px;
+         height: 60px;
+   
+         font-size: 14px;
+         font-weight: 500;
+      }
+}
+

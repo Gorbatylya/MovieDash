@@ -4,10 +4,6 @@ import '../home/homepage.css';
 import useDebounce from '../../hooks/useDebounce';
 import { IMovie, IMovieResult } from '../../interfaces/interface';
 import './search.css';
-import { useAppDispatch, useAppSelector} from '../../hooks/redux';
-import {
-  addToFavourites, deleteMovie
-} from "../../redux/reducers/MovieFavoriteSlice";
 import ButtonForFavourites from '../../components/buttonForFavorite/ButtonForFavorite';
 import SearchingResult from '../../components/movieResult/SearchingResult';
 
@@ -16,22 +12,16 @@ async function searchRequest(search: any) {
   const URL = `https://omdbapi.com/?s=${search}&apikey=3140da31`;
   const res = await fetch(`${URL}`);
   const data = await res.json();
-  // console.log(search);
 
   if (data.Search)
     return data.Search
-  else console.log('error')
 }
 
 
 const Movies = () => {
 
-
-  // для поискового запроса
   const [search, setSearchTerm] = useState('');
-  // для результатов поиска
   const [result, setResults] = useState([]);
-  // для статуса поиска (есть ли ожидающий запрос)
   const [isSearching, setIsSearching] = useState(false);
   const [getItem, setGetItem] = useState(false);
   const [isError, setIsError] = useState(false);
@@ -39,6 +29,7 @@ const Movies = () => {
   const [movieDetail, setmovieDetail] = useState(false);
   // for modal window 
   const [isShow, setIsShow] = useState(false);
+  const [loading, setLoading] = useState(false)
 
   function showResult(){
     if (isError || search === ''){
@@ -46,7 +37,6 @@ const Movies = () => {
     }
     else
     setIsShow(true)
-    // setGetItem(false)
   }
 
   async function loadMovieDetails(imdbID: any) {
@@ -54,10 +44,8 @@ const Movies = () => {
     const res = await fetch(`${URL}`);
     const data: IMovieResult = await res.json();
     if (data)
-      return setMovie(data),
-        setmovieDetail(true),
-    console.log(data)
-    else console.log('error')
+      return setMovie(data)
+        setmovieDetail(true)
   }
 
   const debouncedSearchTerm = useDebounce(search, 500);
@@ -65,23 +53,22 @@ const Movies = () => {
   useEffect(
     () => {
       if (debouncedSearchTerm) {
-        // изм состояние isSearching
-        setGetItem(true)
+        setGetItem(true);
         setIsSearching(true);
-        setIsShow(false)
-        // запрос к АПИ
+        setIsShow(false);
+        setLoading(false)
         searchRequest(debouncedSearchTerm).then(results => {
-          // состояние в false, тк запрос завершен
           setIsSearching(false);
-
-          if (results == undefined) {
-            console.log('ERROR')
+          
+          if (results === undefined) {
             setIsError(true)
             setResults([])
+            setLoading(true)
           }
           else {
             setResults(results)
             setIsError(false)
+            setLoading(true)
           }
         });
 
@@ -94,11 +81,13 @@ const Movies = () => {
     [debouncedSearchTerm]
   );
 
-  function searchByEnter(e:any){
-    if (e.keyCode === 13) {
-      showResult()
-    }
-  }
+  // function searchByEnter(e:any){
+  //   if (e.keyCode === 13) {
+  //     showResult()
+  //   }
+  // }
+
+
 
 
   return (
@@ -114,36 +103,37 @@ const Movies = () => {
             <div>
               <div className='blog-search-input-loop'>
                 <input className='blog-search-input' placeholder='Film, Series' onChange={e => setSearchTerm(e.target.value) }/>
-                  <div className='blog-search-loop-wrap' onClick={() => showResult()}><a className='fa-solid fa-magnifying-glass fa-lg search-loop' href="#search-result"></a></div>
+                <div className='blog-search-loop-wrap' onClick={() => showResult()}><a className='fa-solid fa-magnifying-glass fa-lg search-loop' href="#search-result"></a></div>
               </div>
-              {isSearching && <div><i className="fa-regular fa-loader fa-spin"></i></div>}
+              {/* {isSearching && <div><i className="fa-regular fa-loader fa-spin"></i></div>} */}
               
-              {getItem && 
-              <div className='blog-search-list'> 
-              <div className="blog-search-list-active" id="blog-search-list" >
+              {getItem &&
+                  <div className='blog-search-list'>
+                  <div className="blog-search-list-active" id="blog-search-list" >
                     {isError && <div className='notFound'>Nothing found</div>}
-                        {result.map((item: IMovie) => (
-                            <div className="blog-search-list-item"
-                              key={item.imdbID}
-                              onClick={() => loadMovieDetails(item.imdbID)}>
-                              <div className="blog-search-item-thumbnail">
-                                <img src={(item.Poster != "N/A") ? item.Poster : "/image/no_image.jpg"} className='img-poster' />
-                              </div>
-                              <div className="blog-search-item-info">
-                                <h3>{item.Title}</h3>
-                                <p>{item.Year}</p>
-                              </div>
-                            </div>
-                          ),
-                          )
-                        }
-                      
-                   
+                      {loading ? 
+                      result.map((item: IMovie) => (
+                      <div className="blog-search-list-item"
+                        key={item.imdbID}
+                        onClick={() => loadMovieDetails(item.imdbID)}>
+                        <div className="blog-search-item-thumbnail">
+                          <img src={(item.Poster !== "N/A") ? item.Poster : "/image/no_image.jpg"} className='img-poster' alt="poster" />
+                        </div>
+                        <div className="blog-search-item-info">
+                          <h3>{item.Title}</h3>
+                          <p>{item.Year}</p>
+                        </div>
+                      </div>
+                      )) : 
+                      <h4 className='icon-loading'>Loading...</h4>
+                    }
+                  </div>
+                  <div className='button-show-all'>
+                    <a onClick={() => showResult()} href="#search-result">Show All</a>
+                  </div>
                 </div>
-                    <div className='button-show-all'>
-                      <a onClick={() => showResult()} href="#search-result">Show All</a>
-                    </div>
-              </div>    
+                
+                
               }
             </div>
           </div >
@@ -154,7 +144,7 @@ const Movies = () => {
 
                 <div className="result-content" id="result-content" key={movie?.imdbID}>
                   <div className="movie-poster">
-                    <img src={(movie?.Poster != "N/A") ? movie?.Poster : "/image/no_image.jpg"} alt="movie poster" />
+                    <img src={(movie?.Poster !== "N/A") ? movie?.Poster : "/image/no_image.jpg"} alt="movie poster" />
                   </div>
                   <div className="movie-info">
                     <h3 className="movie-title">{movie?.Title}</h3>

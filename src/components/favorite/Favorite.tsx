@@ -7,16 +7,17 @@ import { deleteMovie } from '../../redux/reducers/MovieFavoriteSlice';
 
 const Favorite = () => {
 
-   // const router = useHistory();
    const dispatch = useAppDispatch();
    const { favoriteMovies } = useAppSelector(
       (state) => state.movieFavoriteReducer
    );
 
+   
+
   return (
     <div>
         <div className="favourite">
-           <h3>My favorites:</h3>
+           <h3 className='favourite-title'>My favorites:</h3>
 
            <div className="favourite-list">
 
@@ -24,7 +25,7 @@ const Favorite = () => {
                  favoriteMovies.map((favouriteMovie: IMovieResult) => (
                <div className="favourite-list-item" key={favouriteMovie.imdbID}>
                  <div className="favourite-list-item-thumbnail">
-                          <img src={(favouriteMovie.Poster != "N/A") ? favouriteMovie.Poster : "/image/no_image.jpg"} />
+                     <img src={(favouriteMovie.Poster !== "N/A") ? favouriteMovie.Poster : "/image/no_image.jpg"} alt='poster'/>
                  </div>
                  <div className="favourite-list-item-info">
                      <h3>{favouriteMovie.Title}</h3>

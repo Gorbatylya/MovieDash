@@ -1,8 +1,17 @@
 .favorite-button {
-   width: 40px;
+   width: 10px;
 }
 
 .fa-heart {
    color: #a24a99;
 
+}
+
+@media (max-width: 1000px) {
+   
+   .fa-heart {
+      width: 30px;
+      font-size: 1.5em !important;
+
+}
 }

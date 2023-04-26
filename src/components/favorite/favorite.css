@@ -48,9 +48,24 @@
 .btn-delete{
    position: absolute;
    display: flex;
-   justify-content: end;
+   justify-content: flex-end;
    padding-right: 30px;
    padding-top: 10px;
    top: 260px;
    left:120px
+}
+
+@media (max-width: 1000px) {
+   .favourite h3{
+      font-size: 16px;
+      margin-top: 20px;
+   }
+
+   .favourite-title{
+      margin-left: 40px;
+   }
+
+   .favourites__nothing{
+      margin-left: 40px;
+   }
 }

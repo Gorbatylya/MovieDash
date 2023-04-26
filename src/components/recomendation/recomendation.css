@@ -15,8 +15,6 @@
    position: relative;
 }
 
-
-
 .recommendation-title {
    font-size: 21px;
    overflow: hidden;
@@ -134,4 +132,19 @@ img {
 
 .buttonRight {
    right: 20px;
+}
+
+@media (max-width: 1000px) {
+
+   .recommendation-title {
+      margin-left: 50px;
+      font-size: 18px;
+      overflow: hidden;
+   }
+
+   .recommendation-list ul {
+      padding: 10px;
+      padding-left: 40px !important;
+   }
+
 }

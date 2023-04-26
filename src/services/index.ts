@@ -35,7 +35,6 @@ export default class getMovie {
    //    if (response.data.Search) {
    //       return response.data.Search;
    //    }
-   //    console.log(response.data.Search)
    // };
 
    // static async getMovieById(movieId: string) {
@@ -51,9 +50,7 @@ export default class getMovie {
 //    const URL = `https://omdbapi.com/?s=${search}&apikey=3140da31&page=1`;
 //    const res = await fetch(`${URL}`);
 //    const data = await res.json();
-//    console.log(data.Search);
 
 //    if (data.Search)
 //       return data.Search
-//    else console.log('error')
 // }
