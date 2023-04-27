@@ -7,6 +7,9 @@ import './search.css';
 import ButtonForFavourites from '../../components/buttonForFavorite/ButtonForFavorite';
 import SearchingResult from '../../components/movieResult/SearchingResult';
 
+// import { useAppDispatch,useAppSelector } from '../../hooks/redux';
+// import { addMovies } from '../../redux/reducers/MovieSlice';
+
 
 async function searchRequest(search: any) {
   const URL = `https://omdbapi.com/?s=${search}&apikey=3140da31`;
@@ -24,7 +27,7 @@ const Movies = () => {
   const [result, setResults] = useState([]);
   const [getItem, setGetItem] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [movie, setMovie] = useState<IMovieResult>();
+  const [newMovie, setMovie] = useState<IMovieResult>();
   const [movieDetail, setmovieDetail] = useState(false);
   // for modal window 
   const [isShow, setIsShow] = useState(false);
@@ -37,6 +40,11 @@ const Movies = () => {
     else
     setIsShow(true)
   }
+
+    //  const dispatch = useAppDispatch();
+    //  const { movie } = useAppSelector(
+    //    (state) => state.movieReducer
+    //  );
 
   async function loadMovieDetails(imdbID: any) {
     const URL = `https://omdbapi.com/?i=${imdbID}&apikey=3140da31`;
@@ -63,6 +71,7 @@ const Movies = () => {
             setLoading(true)
           }
           else {
+            // dispatch(addMovies(results))
             setResults(results)
             setIsError(false)
             setLoading(true)
@@ -102,7 +111,7 @@ const Movies = () => {
                     <a
                       className="fa-solid fa-magnifying-glass fa-lg search-loop"
                       href="#search-result"
-                    ></a>
+                    >{''}</a>
                   </div>
                 </div>
 
@@ -152,113 +161,120 @@ const Movies = () => {
             </div>
 
             <div className="film-card">
-              {movieDetail ? 
-                  <div
-                    className="result-content"
-                    id="result-content"
-                    key={movie?.imdbID}
-                  >
-                    <div className="movie-poster">
-                      <img
-                        src={
-                          movie?.Poster !== "N/A"
-                            ? movie?.Poster
-                            : "/image/no_image.jpg"
-                        }
-                        alt="movie poster"
-                      />
+              {movieDetail ? (
+                <div
+                  className="result-content"
+                  id="result-content"
+                  key={newMovie?.imdbID}
+                >
+                  <div className="movie-poster">
+                    <img
+                      src={
+                        newMovie?.Poster !== "N/A"
+                          ? newMovie?.Poster
+                          : "/image/no_image.jpg"
+                      }
+                      alt="movie poster"
+                    />
+                  </div>
+                  <div className="movie-info">
+                    <h3 className="movie-title">{newMovie?.Title}</h3>
+                    <ul className="movie-misc-info">
+                      <li className="year">Year: {newMovie?.Year}</li>
+                      <li className="rated">Ratings: {newMovie?.Rating}</li>
+                      <li className="released">
+                        Released: {newMovie?.Released}
+                      </li>
+                    </ul>
+                    <p className="genre">
+                      <b>Genre:</b> {newMovie?.Genre}
+                    </p>
+                    <p className="writer">
+                      <b>Writer:</b>
+                      {newMovie?.Writer}
+                    </p>
+                    <p className="actors">
+                      <b>Actors: </b>
+                      {newMovie?.Actors}
+                    </p>
+                    <p className="plot">
+                      <b>Plot:</b>
+                      {newMovie?.Plot}
+                    </p>
+                    <div className="info-heart">
+                      <div>
+                        <p className="language">
+                          <b>Language:</b>
+                          {newMovie?.Language}
+                        </p>
+                        <p className="awards">
+                          <b>
+                            <i className="fas fa-award"></i>
+                          </b>
+                          {newMovie?.Awards}
+                        </p>
+                      </div>
+                      <ButtonForFavourites movie={newMovie} />
                     </div>
-                    <div className="movie-info">
-                      <h3 className="movie-title">{movie?.Title}</h3>
-                      <ul className="movie-misc-info">
-                        <li className="year">Year: {movie?.Year}</li>
-                        <li className="rated">Ratings: {movie?.Rating}</li>
-                        <li className="released">Released: {movie?.Released}</li>
-                      </ul>
-                      <p className="genre">
-                        <b>Genre:</b> {movie?.Genre}
-                      </p>
-                      <p className="writer">
-                        <b>Writer:</b>
-                        {movie?.Writer}
-                      </p>
-                      <p className="actors">
-                        <b>Actors: </b>
-                        {movie?.Actors}
-                      </p>
-                      <p className="plot">
-                        <b>Plot:</b>
-                        {movie?.Plot}
-                      </p>
-                      <div className="info-heart">
-                        <div>
-                          <p className="language">
-                            <b>Language:</b>
-                            {movie?.Language}
-                          </p>
-                          <p className="awards">
-                            <b>
-                              <i className="fas fa-award"></i>
-                            </b>
-                            {movie?.Awards}
-                          </p>
-                        </div>
-                        <ButtonForFavourites movie={movie} />
+                  </div>
+                </div>
+              ) : (
+                <div className="result-content" id="result-content">
+                  <div className="movie-poster">
+                    <img src="/image/new-movie2.jpg" alt="movie poster" />
+                  </div>
+                  <div className="movie-info">
+                    <h3 className="movie-title">
+                      Federico Chiesa - Back on Track
+                    </h3>
+                    <ul className="movie-misc-info">
+                      <li className="year">Year: 2023</li>
+                      <li className="rated">Ratings: 6.9/10</li>
+                      <li className="released">Released: February 3, 2023</li>
+                    </ul>
+                    <p className="genre">
+                      <b>Genre:</b> Documentary
+                    </p>
+                    <p className="writer">
+                      <b>Writer:</b>Alessandro D'Ottavi
+                    </p>
+                    <p className="actors">
+                      <b>Actors: </b>Edoardo Bandini, Fabrizio Borri, Lucia
+                      Bramani
+                    </p>
+                    <p className="plot">
+                      <b>Plot:</b>9 January 2022, the Stadio Olimpico in Rome.
+                      30 minutes into the first half, Federico Chiesa collapses
+                      to the ground, screaming in pain. He has torn the cruciate
+                      ligament of his left knee. A ten-month ordeal, during
+                      which Federico will have to rediscover himself as a
+                      footballer and as a man, begins here. By his side, his
+                      family, his teammates, the Juventus staff and a precious
+                      new love
+                    </p>
+                    <div className="info-heart">
+                      <div>
+                        <p className="language">
+                          <b>Language:</b>Italian
+                        </p>
+                        <p className="awards">
+                          <b>
+                            <i className="fas fa-award"></i>
+                          </b>
+                          no information
+                        </p>
                       </div>
                     </div>
                   </div>
-                 :
-                  <div className="result-content" id="result-content">
-                    <div className="movie-poster">
-                      <img src="/image/new-movie2.jpg" alt="movie poster" />
-                    </div>
-                    <div className="movie-info">
-                      <h3 className="movie-title">
-                        Federico Chiesa - Back on Track
-                      </h3>
-                      <ul className="movie-misc-info">
-                        <li className="year">Year: 2023</li>
-                        <li className="rated">Ratings: 6.9/10</li>
-                        <li className="released">Released: February 3, 2023</li>
-                      </ul>
-                      <p className="genre">
-                        <b>Genre:</b> Documentary
-                      </p>
-                      <p className="writer">
-                        <b>Writer:</b>Alessandro D'Ottavi
-                      </p>
-                      <p className="actors">
-                        <b>Actors: </b>Edoardo Bandini, Fabrizio Borri, Lucia
-                        Bramani
-                      </p>
-                      <p className="plot">
-                        <b>Plot:</b>9 January 2022, the Stadio Olimpico in Rome.
-                        30 minutes into the first half, Federico Chiesa
-                        collapses to the ground, screaming in pain. He has torn
-                        the cruciate ligament of his left knee. A ten-month
-                        ordeal, during which Federico will have to rediscover
-                        himself as a footballer and as a man, begins here. By
-                        his side, his family, his teammates, the Juventus staff
-                        and a precious new love
-                      </p>
-                      <div className="info-heart">
-                        <div>
-                          <p className="language">
-                            <b>Language:</b>Italian
-                          </p>
-                          <p className="awards">
-                            <b><i className="fas fa-award"></i></b>no information</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                }
+                </div>
+              )}
             </div>
           </div>
 
           {isShow ? (
             <div id="search-result">
-              <SearchingResult movie={result} search={search} />
+              {''}
+              <SearchingResult movie={result} search={search} ></SearchingResult>
             </div>
           ) : (
             ""
