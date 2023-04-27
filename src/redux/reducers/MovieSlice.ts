@@ -1,7 +1,5 @@
 
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import React from "react"; 
-import { isExpressionWithTypeArguments } from "typescript";
+import { createSlice} from "@reduxjs/toolkit";
 import { IMovie } from "../../interfaces/interface";
 // import { fetchMovies } from "../actions/actionCreator";
 

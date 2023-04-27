@@ -1,5 +1,4 @@
-import { configureStore, combineReducers } from '@reduxjs/toolkit';
-// import MovieInfo from './reducers/MovieInfo';
+import { configureStore} from '@reduxjs/toolkit';
 import MovieSlice from '../reducers/MovieSlice';
 import MovieFavoriteSlice from '../reducers/MovieFavoriteSlice';
 

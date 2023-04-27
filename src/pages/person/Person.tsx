@@ -14,7 +14,7 @@ const Person = () => {
             <h3>NAME: Dasha</h3>
           </div>
 
-          <Favorite></Favorite>
+          <Favorite />
 
         </div>
 

@@ -8,10 +8,29 @@
 .favourite-list-item {
    display: flex;
    flex-direction: column;
+   justify-content: center;
+   align-items: center;
    height: 300px;
-   max-width: 200px;
-   margin: 20px;
+   width: 200px;
+   margin: 10px;
    position: relative;
+
+}
+
+/* .favourite-list-item::before{
+   display: none;
+   content: '';
+   position: absolute;
+   background-color: rgba(182, 84, 84, 0.532);
+   height: 300px;
+   width: 200px;
+} */
+
+.favourite-list-item:hover{
+
+   /* position: absolute; */
+
+   cursor: pointer;
 }
 
 .favourite-list-item-thumbnail {
@@ -29,7 +48,11 @@
 }
 
 .favourite-list-item-info{
-   max-height: 40px;
+   height: 80px;
+   max-width: 180px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
 }
 
 .favourite-list-item-info h3 {
@@ -37,23 +60,36 @@
    color: rgb(212, 126, 212)
 }
 
-.fa-trash-can{
-   color: white;
+.fa-xmark{
+   color: rgba(107, 105, 105, 0.754);
+
 }
 
-.fa-trash-can:hover{
-   color: rgb(212, 126, 212)
+.fa-xmark:hover{
+   color: rgb(200, 196, 200);
+   transition: 0.4ms;
 }
 
 .btn-delete{
    position: absolute;
+   z-index: 999;
    display: flex;
    justify-content: flex-end;
-   padding-right: 30px;
-   padding-top: 10px;
-   top: 260px;
-   left:120px
+
+   /* width: 200px;
+   height: 300px; */
+
+   /* padding-right: 30px;
+   padding-top: 10px; */
+   top: 10px;
+   left:180px;
+   
 }
+
+/* .btn-delete::before{
+   width: 200px;
+   height: 300px;
+} */
 
 @media (max-width: 1000px) {
    .favourite h3{

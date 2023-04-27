@@ -8,7 +8,7 @@ const MyFavorite = () => {
   return (
     <div>
       <div className="container">
-      <Favorite></Favorite>
+      <Favorite />
       </div>
     </div>
   )

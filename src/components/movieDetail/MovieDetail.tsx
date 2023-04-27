@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import './movieDetail.css';
 import ButtonForFavourites from '../buttonForFavorite/ButtonForFavorite';
-// import ButtonForFavouritesDelete from '../buttonForFavorite/ButtonForFavorite';
 import { IMovieResult } from '../../interfaces/interface';
 import { useState } from 'react';
 
@@ -11,20 +10,18 @@ const MovieDetail = (imdbID:any) => {
    const [loading, setLoading] = useState(false);
 
    useEffect(() => {
-      
-      const URL = `https://omdbapi.com/?i=${imdbID.movie}&apikey=3140da31`;
-      fetch(`${URL}`)
-         .then(response => response.json())
-         .then(data => setMovie(data))
+     const URL = `https://omdbapi.com/?i=${imdbID.movie}&apikey=3140da31`;
+     fetch(`${URL}`)
+       .then((response) => response.json())
+       .then((data) => setMovie(data));
 
-      setTimeout(() => {
-         setLoading(true)
-      }, 600)
+     setTimeout(() => {
+       setLoading(true);
+     }, 600);
 
    }, [imdbID.movie])
 
-  
-   
+
 
    return ( 
    <>
@@ -50,10 +47,8 @@ const MovieDetail = (imdbID:any) => {
                         <p className="language"><b>Language:</b>{movie?.Language}</p>
                         <p className="awards"><b><i className="fas fa-award"></i></b>{movie?.Awards}</p>
                      </div>
-                             <ButtonForFavourites movie={movie}></ButtonForFavourites>
-
+                           <ButtonForFavourites movie={movie}/>
                           </div>
-
                        </div>
                     </div>
                </div>   

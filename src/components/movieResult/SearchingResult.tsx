@@ -10,7 +10,6 @@ const SearchingResult = (movie:any, search:string) => {
    const [isShowDetail, setShowDetail] = useState(false);
    const [imdbID, setImdbID] = useState();
    const [lastPage, setLastPage] = useState(true);
-   // const [firstPage, setFirstPage] = useState(true);
    const [currentPage, setCurrentPage] = useState(2);
    const [loadingNew, setLoadingNew] = useState(true)
 
@@ -25,12 +24,6 @@ const SearchingResult = (movie:any, search:string) => {
       setTimeout(() => {
          setLoadingNew(true)
       }, 400);
-         
-      // if (currentPage > 2) {
-      //    setTimeout(() => {
-      //       setLoadingNew(false)
-      //    }, 400);
-      // }
    }
 
 
@@ -84,13 +77,7 @@ const SearchingResult = (movie:any, search:string) => {
                  }
                  
                </ul>
-
-              {/* {firstPage ?
-                 <div><button className="back" onClick={()=>backPage()}>BACK</button></div>
-                 : null
-              } */}
                   
-
               {lastPage ?
                  <div><button className="btn-next-page" onClick={()=> nextPage()}>NEXT</button></div>
                  : <div><button className="btn-last-page">No more movies found</button></div>

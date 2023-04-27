@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 
 function useDebounce(value:any, delay:any) {
@@ -16,9 +16,8 @@ function useDebounce(value:any, delay:any) {
             clearTimeout(handler);
          };
       },
-      // Вызывается снова ток если значение изм
   
-      [value]
+      [value, delay]
       
    );
 

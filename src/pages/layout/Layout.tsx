@@ -1,5 +1,4 @@
-import React, {useState} from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import './layout.css';
 import Header from '../../components/header/Header';
 
@@ -9,18 +8,17 @@ const Layout = () => {
 
   return (
     <>
-      <Header></Header>
+      <Header />
 
          <main >
           <Outlet/> 
-          {/* сюда вставляется все что находится в Layout в App */}
         </main>
 
         <footer>
           <div className='container'>
             <div className='footer-content'>
             <div className='footer-info-left'>
-                <img src='/image/moviedash.gif' className='footer-logo'></img>
+                <img src='/image/moviedash.gif' className='footer-logo' alt='poster'></img>
                 <div className='footer-icon-wrap'>
                     <div className='footer-icon'><i className="fa-brands fa-vk fa-2xl"></i></div>
                     <div className='footer-icon'><i className="fa-brands fa-youtube fa-2xl"></i></div>

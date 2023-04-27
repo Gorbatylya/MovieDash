@@ -4,12 +4,7 @@ import { useAppSelector } from '../../hooks/redux';
 import './header.css';
 
 
-
-
-
 const Header = () => {
-
-   // const [amount, setAmount] = useState(0);
 
    const { favoriteMovies } = useAppSelector(
       (state) => state.movieFavoriteReducer
@@ -37,7 +32,6 @@ const Header = () => {
               </div>
            </div>
         </header>
-
     </div>
   )
 }
